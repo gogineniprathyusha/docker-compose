@@ -17,7 +17,7 @@ resource "aws_instance" "elkstack" {
   ami           = var.ami
   instance_type = var.instance_type
   key_name = "Devops"
-  user_data = file("dockerinstall.sh")
+  user_data = file("elkinstall.sh")
   security_groups = [ "launch-wizard-3" ]
   tags = {
     Name = "elkstack"
