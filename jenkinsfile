@@ -5,20 +5,21 @@ pipeline {
 }
 
     stages {
-        stage('Git Checkout') {
-            steps {
-               git branch: 'main', credentialsId: 'github', url: 'https://github.com/gogineniprathyusha/docker-compose.git'
+        stage('Git checkout') {
+           steps {
+                git branch: 'main', credentialsId: 'github', url: 'https://github.com/gogineniprathyusha/docker-compose.git'
             }
         }
-        stage('Terraform init') {
+        
+        stage('terraform Init') {
             steps {
                 sh 'terraform init'
             }
         }
-        stage('Terraform Apply') {
-            steps 
+        stage('terraform apply') {
+            steps {
                 sh 'terraform apply --auto-approve'
             }
         }
-    }
-
+    }    
+}
